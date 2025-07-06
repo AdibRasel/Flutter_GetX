@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/GetXRouting/About.dart';
+import 'package:getx/GetXRouting/Contact.dart';
+import 'package:getx/GetXRouting/GetXRouting.dart';
+import 'package:getx/GetXRouting/PrimarySchool.dart';
+import 'package:getx/GetXRouting/Sahapur.dart';
+import 'package:getx/GetXRouting/School.dart';
+import 'package:getx/GetXRouting/SecondaryScrool.dart';
+import 'package:getx/GetXRouting/Service.dart';
+import 'package:getx/GetxBottomSheet.dart';
 import 'package:getx/GetxDialog.dart';
 import 'package:getx/GetxSnackbar.dart';
+import 'package:getx/GetxStateCounterApp/GetxStateCounterApp.dart';
+import 'package:getx/GetxStorage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,14 +28,29 @@ class MyApp extends StatelessWidget {
       //MaterialApp এর সকল কাজ করা যাবে GetMaterialApp এর বিতরে।
       // home: Home(),
       // debugShowCheckedModeBanner: false,
-       initialRoute: '/',
-      routes: {
-        '/': (context) => Home(),
-        '/Home': (context) => Home(),
-        '/GetxSnackbar': (context) => GetxSnackbar(),
-        '/GetxDialog': (context) => GetxDialog(),
+      initialRoute: '/',
+      getPages: [
 
-      },
+        GetPage(name: "/", page: ()=> Home()),
+
+        GetPage(name: "/GetxSnackbar", page: ()=> GetxSnackbar(), transition: Transition.circularReveal),
+        GetPage(name: "/GetxDialog", page: ()=> GetxDialog(), transition: Transition.cupertino),
+        GetPage(name: "/GetxBottomSheet", page: ()=> GetxBottomSheet(), transition: Transition.cupertinoDialog),
+        GetPage(name: "/GetXRouting", page: ()=> GetXRouting(), transition: Transition.fade),
+
+        GetPage(name: "/About", page: ()=> About(), transition: Transition.leftToRight),
+        GetPage(name: "/Contact", page: ()=> Contact(), transition: Transition.rightToLeft),
+        GetPage(name: "/Service", page: ()=> Service(), transition: Transition.zoom),
+
+        GetPage(name: "/PrimarySchool", page: ()=> PrimarySchool(), transition: Transition.native),
+        GetPage(name: "/Sahapur", page: ()=> Sahapur(), transition: Transition.rightToLeftWithFade),
+        GetPage(name: "/School", page: ()=> School(), transition: Transition.topLevel),
+        GetPage(name: "/SecondaryScrool", page: ()=> SecondaryScrool(), transition: Transition.upToDown),
+
+        GetPage(name: "/GetxStorage", page: ()=> GetxStorage(), transition: Transition.rightToLeft),
+        GetPage(name: "/GetxStateCounterApp", page: ()=> GetxStateCounterApp(), transition: Transition.leftToRight),
+
+      ],
     );
   }
 }
@@ -44,6 +70,26 @@ class Home extends StatelessWidget {
       "title": "Getx Dialog",
       "route": "GetxDialog",
       "image": "https://i.sstatic.net/bMS0H.png",
+    },
+    {
+      "title": "Getx Bottom Sheet",
+      "route": "GetxBottomSheet",
+      "image": "https://i.sstatic.net/Rbcfr.png",
+    },
+    {
+      "title": "GetX Routing",
+      "route": "GetXRouting",
+      "image": "https://i.ytimg.com/vi/Fj1xoZgtEXM/sddefault.jpg",
+    },
+    {
+      "title": "Getx Storage",
+      "route": "GetxStorage",
+      "image": "https://miro.medium.com/v2/resize:fit:1080/1*XL7zxkTmfk-5MUf-QG1gBw.png",
+    },
+    {
+      "title": "Getx State Counter App",
+      "route": "GetxStateCounterApp",
+      "image": "https://play-lh.googleusercontent.com/OjJL9T6eT8bsWot5Kt1lrqy8zMbP35hrJSnemcZuXq1x-30HanNvWDI--MhNlAna4w",
     }
   ];
 
